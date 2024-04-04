@@ -30,3 +30,10 @@ $ python training_and_inference.py
 
 
 ```
+
+## Action list
+- add documentation
+- add testing
+- create some pipeline framework
+- better readme
+- attach a presentation file
