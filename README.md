@@ -1,8 +1,43 @@
 # SinoPac 2023
 
-## 隊伍名稱：待業中
+## 競賽基本資料
+#### 競賽題目：信用卡冒用偵測 
+#### 隊伍名稱：待業中
+#### 訓練集資料量：(11751, 22)
+#### 公開測試集資料量：5876 筆
+#### 測試集資料量：5875 筆
+#### 名次：20/972
+#### 成果：MAPE 7.507978
+[比賽說明連結](https://tbrain.trendmicro.com.tw/Competitions/Details/30)
 
-## 作者：harryhowiefish
+## Python Packages used
+numpy, pandas, catboost, scikit-learn, kmodes, pyproj
+
+## 技術說明
+- data cleaning
+    - remove outlier data
+    - Adjust skewness of target price (Log transform)
+    - Individually correct some inaccurate data from using information in the 備註 column
+- feature engineering
+    - include a lot of external data
+    - kmean and kmode different features
+    - create clusters from geographical data and perform aggregation.
+    - include the external location data (schools, bus stop, mrt station...etc) with different ranging radius
+- model design
+    - param
+        - learning_rate=0.01
+        - depth=8
+        - loss_function='RMSE'
+        - class_weights=[1,220]
+        - grow_policy = 'Depthwise'
+        - l2_leaf_reg=2
+        - random_strength=5
+        - rsm=0.5
+        - eval_metric = MAPE
+- key concept
+    - Adjust skewness of target (Log transform)
+    - Create a lot of statistical features 
+    - Feature selection (using both catboost provided method and feature importance)
 
 ## 使用資料：
 - 主辦單位提供
@@ -33,7 +68,5 @@ $ python training_and_inference.py
 
 ## Action list
 - add documentation
-- add testing
 - create some pipeline framework
-- better readme
 - attach a presentation file
