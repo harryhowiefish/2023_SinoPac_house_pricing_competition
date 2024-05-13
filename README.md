@@ -28,7 +28,6 @@ numpy, pandas, catboost, scikit-learn, kmodes, pyproj
         - learning_rate=0.01
         - depth=8
         - loss_function='RMSE'
-        - class_weights=[1,220]
         - grow_policy = 'Depthwise'
         - l2_leaf_reg=2
         - random_strength=5
